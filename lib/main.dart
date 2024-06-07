@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:todo_app/todo_splash_screen.dart';
+import 'package:todo_app/view/screens/todo_splash_screen.dart';
 import 'package:todo_app/view_model/app_colors.dart';
 
 void main() {

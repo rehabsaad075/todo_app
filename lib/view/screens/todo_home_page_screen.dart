@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/view/add_task_screen.dart';
 import 'package:todo_app/view_model/app_icons.dart';
+import 'package:todo_app/view_model/functions/navigation_functions.dart';
 
 class TodoHomePageScreen extends StatelessWidget {
   const TodoHomePageScreen({super.key});
@@ -20,10 +22,10 @@ class TodoHomePageScreen extends StatelessWidget {
         floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-            // navigationPushFunction(
-            //     context: context,
-            //     screen: const AddNotesScreen()
-           // );
+            navigationPushFunction(
+                context: context,
+                screen: const AddTaskScreen()
+           );
           },
           child: const Icon(
               AppIcons.addIcon
