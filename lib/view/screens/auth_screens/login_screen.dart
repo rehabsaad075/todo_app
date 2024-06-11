@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:todo_app/view/componets/elvated_button_custom.dart';
-import 'package:todo_app/view/componets/text_form_field_custom.dart';
+import 'package:todo_app/view/componets/widgets/elvated_button_custom.dart';
+import 'package:todo_app/view/componets/widgets/text_form_field_custom.dart';
 import 'package:todo_app/view/componets/widgets/text_custom.dart';
 import 'package:todo_app/view/screens/auth_screens/register_screen.dart';
-import 'package:todo_app/view_model/app_colors.dart';
-import 'package:todo_app/view_model/app_icons.dart';
-import 'package:todo_app/view_model/functions/navigation_functions.dart';
+import 'package:todo_app/view_model/utils/material/app_colors.dart';
+import 'package:todo_app/view_model/utils/material/app_icons.dart';
+import 'package:todo_app/view_model/utils/functions/navigation_functions.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});

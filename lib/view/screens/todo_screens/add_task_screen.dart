@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:todo_app/view/componets/drop_down_menu_custom.dart';
-import 'package:todo_app/view/componets/elvated_button_custom.dart';
-import 'package:todo_app/view/componets/text_form_field_custom.dart';
-import 'package:todo_app/view_model/functions/show_date_picker_function.dart';
+import 'package:todo_app/view/componets/widgets/drop_down_menu_custom.dart';
+import 'package:todo_app/view/componets/widgets/elvated_button_custom.dart';
+import 'package:todo_app/view/componets/widgets/text_form_field_custom.dart';
+import 'package:todo_app/view_model/utils/functions/show_date_picker_function.dart';
 
-class UpdateTaskScreen extends StatelessWidget {
-  const UpdateTaskScreen({super.key});
+class AddTaskScreen extends StatelessWidget {
+  const AddTaskScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class UpdateTaskScreen extends StatelessWidget {
               keyboardType: TextInputType.text,
             ),
             const SizedBox(height: 15,),
-            TextFormFieldCustom(
+             TextFormFieldCustom(
               labelText: 'تاريخ البدأ',
               keyboardType: TextInputType.none,
               onTap: () async {
@@ -40,7 +40,7 @@ class UpdateTaskScreen extends StatelessWidget {
               },
             ),
             const SizedBox(height: 15,),
-            TextFormFieldCustom(
+             TextFormFieldCustom(
               labelText: 'تاريخ الانتهاء',
               keyboardType: TextInputType.none,
               onTap: () async {
@@ -59,9 +59,9 @@ class UpdateTaskScreen extends StatelessWidget {
             ElevatedButtonCustom(
               onPressed: () {  },
               child: const Text(
-                'تعديل',
+                      'إضافة',
                 style: TextStyle(
-                    fontSize: 20
+                  fontSize: 20
                 ),
               ),
             )

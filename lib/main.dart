@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:todo_app/view/screens/todo_splash_screen.dart';
-import 'package:todo_app/view_model/app_colors.dart';
+import 'package:todo_app/view/screens/todo_screens/todo_splash_screen.dart';
+import 'package:todo_app/view_model/utils/material/app_colors.dart';
 
 void main() {
   runApp(const TodoApp());

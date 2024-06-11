@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:todo_app/view_model/app_colors.dart';
-import 'package:todo_app/view_model/app_icons.dart';
+import 'package:todo_app/view_model/utils/material/app_colors.dart';
+import 'package:todo_app/view_model/utils/material/app_icons.dart';
 
 class TaskItemCustom extends StatelessWidget {
   final void Function()? onTap;

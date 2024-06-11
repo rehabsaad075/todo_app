@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app/view/componets/items/task_item_custom.dart';
-import 'package:todo_app/view/screens/update_task_screen.dart';
-import 'package:todo_app/view_model/functions/navigation_functions.dart';
+import 'package:todo_app/view/screens/todo_screens/update_task_screen.dart';
+import 'package:todo_app/view_model/utils/functions/navigation_functions.dart';
 
 class AllTasksListView extends StatelessWidget {
   const AllTasksListView({super.key});

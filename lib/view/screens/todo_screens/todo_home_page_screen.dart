@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:todo_app/view/add_task_screen.dart';
+import 'package:todo_app/view/screens/todo_screens/add_task_screen.dart';
 import 'package:todo_app/view/componets/bodies/all_tasks_list_view.dart';
-import 'package:todo_app/view_model/app_icons.dart';
-import 'package:todo_app/view_model/functions/navigation_functions.dart';
+import 'package:todo_app/view_model/utils/material/app_icons.dart';
+import 'package:todo_app/view_model/utils/functions/navigation_functions.dart';
 
 class TodoHomePageScreen extends StatelessWidget {
   const TodoHomePageScreen({super.key});

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:todo_app/view/componets/elvated_button_custom.dart';
-import 'package:todo_app/view/componets/text_form_field_custom.dart';
+import 'package:todo_app/view/componets/widgets/elvated_button_custom.dart';
+import 'package:todo_app/view/componets/widgets/text_form_field_custom.dart';
 import 'package:todo_app/view/componets/widgets/text_custom.dart';
-import 'package:todo_app/view_model/app_colors.dart';
-import 'package:todo_app/view_model/app_icons.dart';
+import 'package:todo_app/view_model/utils/material/app_colors.dart';
+import 'package:todo_app/view_model/utils/material/app_icons.dart';
 
 class RegisterScreen extends StatelessWidget {
   const RegisterScreen({super.key});

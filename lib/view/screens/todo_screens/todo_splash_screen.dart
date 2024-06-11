@@ -1,7 +1,7 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:todo_app/view/screens/auth_screens/login_screen.dart';
-import 'package:todo_app/view/screens/todo_home_page_screen.dart';
+import 'package:todo_app/view/screens/todo_screens/todo_home_page_screen.dart';
 
 class TodoSplashScreen extends StatelessWidget {
   const TodoSplashScreen({super.key});
