@@ -62,7 +62,7 @@ class TextFormFieldCustom extends StatelessWidget {
             const BorderSide(
                 color: AppColors.appColor
             )),
-        prefixIcon:icon !=null? Icon(
+        suffixIcon:icon !=null? Icon(
           icon,
           color: AppColors.appColor,
         ):null,
