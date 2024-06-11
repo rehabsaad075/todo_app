@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app/view/screens/todo_screens/todo_splash_screen.dart';
+import 'package:todo_app/view_model/data/local/shared_preferences.dart';
 import 'package:todo_app/view_model/data/network/diohelper.dart';
 import 'package:todo_app/view_model/utils/material/app_colors.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await LocalData.init();
   await DioHelper.init();
   runApp(const TodoApp());
 }
