@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app/view/screens/todo_screens/todo_splash_screen.dart';
+import 'package:todo_app/view_model/data/network/diohelper.dart';
 import 'package:todo_app/view_model/utils/material/app_colors.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await DioHelper.init();
   runApp(const TodoApp());
 }
 class TodoApp extends StatelessWidget {
