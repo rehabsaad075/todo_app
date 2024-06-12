@@ -7,7 +7,7 @@ class CircularProgressLoadingCustom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CircularProgressIndicator(
-      color: AppColors.appColor,
+      color: AppColors.whiteColor,
       backgroundColor: AppColors.appColor.withOpacity(1),
     );
   }

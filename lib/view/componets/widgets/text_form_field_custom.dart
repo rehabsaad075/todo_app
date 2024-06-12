@@ -11,6 +11,7 @@ class TextFormFieldCustom extends StatelessWidget {
   final String? Function(String?)? validator;
   final AutovalidateMode? autovalidateMode;
   final bool obscureText ;
+  final bool ?readOnly;
   const TextFormFieldCustom({
     Key? key,
     this.onTap,
@@ -22,6 +23,7 @@ class TextFormFieldCustom extends StatelessWidget {
     this.validator,
     this.autovalidateMode,
     this.obscureText=false,
+     this.readOnly,
   }) : super(key: key);
 
   @override
@@ -32,6 +34,7 @@ class TextFormFieldCustom extends StatelessWidget {
       validator: validator,
       obscureText:obscureText ,
       autovalidateMode: autovalidateMode,
+      readOnly: readOnly??false,
       style: const TextStyle(
           color: AppColors.appColor
       ),

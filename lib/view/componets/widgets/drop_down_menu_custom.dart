@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/view_model/cubits/add_task_cubit/add_task_cubit.dart';
 import 'package:todo_app/view_model/utils/material/app_colors.dart';
 
 class DropDownMenuCustom extends StatelessWidget {
@@ -9,7 +10,7 @@ class DropDownMenuCustom extends StatelessWidget {
     return DropdownMenu(
         width: 365,
         onSelected: (value){
-
+          AddTaskCubit.get(context).selectedTaskType(value!);
         },
         label: const Text(
           'اختر نوع المهمة',
@@ -20,19 +21,19 @@ class DropDownMenuCustom extends StatelessWidget {
         ),
         dropdownMenuEntries: const [
           DropdownMenuEntry(
-              value: Text('new'),
+              value: 'new',
               label: 'new'
           ),
           DropdownMenuEntry(
-              value: Text('doing'),
+              value: 'doing',
               label: 'doing'
           ),
           DropdownMenuEntry(
-              value: Text('completed'),
+              value: 'completed',
               label: 'completed'
           ),
           DropdownMenuEntry(
-              value: Text('outdated'),
+              value: 'outdated',
               label: 'outdated'
           ),
         ]
