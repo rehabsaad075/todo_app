@@ -12,6 +12,7 @@ class TextFormFieldCustom extends StatelessWidget {
   final AutovalidateMode? autovalidateMode;
   final bool obscureText ;
   final bool ?readOnly;
+  final void Function()? onSuffixPressed;
   const TextFormFieldCustom({
     Key? key,
     this.onTap,
@@ -24,6 +25,7 @@ class TextFormFieldCustom extends StatelessWidget {
     this.autovalidateMode,
     this.obscureText=false,
      this.readOnly,
+    this.onSuffixPressed,
   }) : super(key: key);
 
   @override
@@ -65,10 +67,13 @@ class TextFormFieldCustom extends StatelessWidget {
             const BorderSide(
                 color: AppColors.appColor
             )),
-        suffixIcon:icon !=null? Icon(
-          icon,
-          color: AppColors.appColor,
-        ):null,
+        suffixIcon:IconButton(
+          onPressed: onSuffixPressed,
+          icon: Icon(
+              icon,
+            color: AppColors.gray,
+          )
+          ,),
         labelText:labelText,
         labelStyle: const TextStyle(
             color: AppColors.appColor

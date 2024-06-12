@@ -67,4 +67,12 @@ class AuthCubit extends Cubit<AuthState> {
     isPassword=!isPassword;
     emit(ChangeSuffixIconPass());
   }
+
+  bool isPasswordConf=true;
+  IconData suffixIconConf=AppIcons.visibilityIcon;
+  void changeSuffixIconPassConf(){
+    isPasswordConf?suffixIconConf=AppIcons.visibilityOffIcon:suffixIconConf=AppIcons.visibilityIcon;
+    isPasswordConf=!isPasswordConf;
+    emit(ChangeSuffixIconPass());
+  }
 }

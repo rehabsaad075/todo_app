@@ -73,7 +73,7 @@ class LoginScreen extends StatelessWidget {
                       obscureText: authCubit.isPassword,
                       textInputAction: TextInputAction.done,
                       icon: authCubit.suffixIcon,
-                      onTap: (){
+                      onSuffixPressed: (){
                         authCubit.changeSuffixIconPass();
                       },
                       validator: (value) {

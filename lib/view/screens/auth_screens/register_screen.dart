@@ -78,7 +78,7 @@ class RegisterScreen extends StatelessWidget {
                       controller: authCubit.passwordController,
                       obscureText: authCubit.isPassword,
                       icon: authCubit.suffixIcon,
-                      onTap: (){
+                      onSuffixPressed: (){
                         authCubit.changeSuffixIconPass();
                       },
                       validator: (value) {
@@ -95,12 +95,12 @@ class RegisterScreen extends StatelessWidget {
                       labelText: ' تاكيد كلمة المرور',
                       keyboardType: TextInputType.text,
                       controller: authCubit.passwordConfirmationController,
-                      obscureText: authCubit.isPassword,
+                      obscureText: authCubit.isPasswordConf,
                       autovalidateMode: AutovalidateMode.onUserInteraction,
                       textInputAction: TextInputAction.done,
-                      icon: authCubit.suffixIcon,
-                      onTap: (){
-                        authCubit.changeSuffixIconPass();
+                      icon: authCubit.suffixIconConf,
+                      onSuffixPressed: (){
+                        authCubit.changeSuffixIconPassConf();
                       },
                       validator: (value) {
                         if (value!.isEmpty) {
