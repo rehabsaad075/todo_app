@@ -6,6 +6,7 @@ import 'package:todo_app/view_model/data/network/diohelper.dart';
 import 'package:todo_app/view_model/data/network/endPoints.dart';
 import 'package:todo_app/view_model/utils/functions/show_toast_function.dart';
 import 'package:todo_app/view_model/utils/material/app_colors.dart';
+import 'package:todo_app/view_model/utils/material/app_icons.dart';
 
 part 'auth_state.dart';
 
@@ -57,5 +58,13 @@ class AuthCubit extends Cubit<AuthState> {
       throw error;
     });
 
+  }
+
+  bool isPassword=true;
+  IconData suffixIcon=AppIcons.visibilityIcon;
+  void changeSuffixIconPass(){
+    isPassword?suffixIcon=AppIcons.visibilityOffIcon:suffixIcon=AppIcons.visibilityIcon;
+    isPassword=!isPassword;
+    emit(ChangeSuffixIconPass());
   }
 }

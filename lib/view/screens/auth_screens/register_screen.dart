@@ -8,7 +8,6 @@ import 'package:todo_app/view/screens/todo_screens/todo_home_page_screen.dart';
 import 'package:todo_app/view_model/cubits/auth_cubit/auth_cubit.dart';
 import 'package:todo_app/view_model/utils/functions/navigation_functions.dart';
 import 'package:todo_app/view_model/utils/material/app_colors.dart';
-import 'package:todo_app/view_model/utils/material/app_icons.dart';
 
 class RegisterScreen extends StatelessWidget {
   const RegisterScreen({super.key});
@@ -77,8 +76,11 @@ class RegisterScreen extends StatelessWidget {
                       labelText: ' كلمة المرور',
                       keyboardType: TextInputType.text,
                       controller: authCubit.passwordController,
-                      obscureText: true,
-                      icon: AppIcons.visibilityIcon,
+                      obscureText: authCubit.isPassword,
+                      icon: authCubit.suffixIcon,
+                      onTap: (){
+                        authCubit.changeSuffixIconPass();
+                      },
                       validator: (value) {
                         if (value!.isEmpty) {
                           return 'كلمة المرور مطلوبة';
@@ -93,12 +95,19 @@ class RegisterScreen extends StatelessWidget {
                       labelText: ' تاكيد كلمة المرور',
                       keyboardType: TextInputType.text,
                       controller: authCubit.passwordConfirmationController,
-                      obscureText: true,
+                      obscureText: authCubit.isPassword,
+                      autovalidateMode: AutovalidateMode.onUserInteraction,
                       textInputAction: TextInputAction.done,
-                      icon: AppIcons.visibilityIcon,
+                      icon: authCubit.suffixIcon,
+                      onTap: (){
+                        authCubit.changeSuffixIconPass();
+                      },
                       validator: (value) {
                         if (value!.isEmpty) {
                           return 'كلمة المرور مطلوبة';
+                        }
+                        else if(value !=authCubit.passwordController.text){
+                          return 'كلمة المرور غير صحيحة';
                         }
                         return null;
                       },

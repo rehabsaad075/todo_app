@@ -8,7 +8,6 @@ import 'package:todo_app/view/screens/auth_screens/register_screen.dart';
 import 'package:todo_app/view/screens/todo_screens/todo_home_page_screen.dart';
 import 'package:todo_app/view_model/cubits/auth_cubit/auth_cubit.dart';
 import 'package:todo_app/view_model/utils/material/app_colors.dart';
-import 'package:todo_app/view_model/utils/material/app_icons.dart';
 import 'package:todo_app/view_model/utils/functions/navigation_functions.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -71,9 +70,12 @@ class LoginScreen extends StatelessWidget {
                       labelText: ' كلمة المرور',
                       keyboardType: TextInputType.text,
                       controller: authCubit.passwordController,
-                      obscureText: true,
+                      obscureText: authCubit.isPassword,
                       textInputAction: TextInputAction.done,
-                      icon: AppIcons.visibilityIcon,
+                      icon: authCubit.suffixIcon,
+                      onTap: (){
+                        authCubit.changeSuffixIconPass();
+                      },
                       validator: (value) {
                         if (value!.isEmpty) {
                           return 'كلمة المرور مطلوبة';
