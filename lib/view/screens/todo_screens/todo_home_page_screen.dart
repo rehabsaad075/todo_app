@@ -12,7 +12,7 @@ class TodoHomePageScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => GetTasksCubit()..getAllTasks(),
+      create: (context) => GetTasksCubit()..getAllTasks()..initController()..scrollerListener(),
       child: Directionality(
         textDirection: TextDirection.rtl,
         child: Scaffold(

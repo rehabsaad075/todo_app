@@ -26,7 +26,6 @@ class AddTaskScreen extends StatelessWidget {
               body: Form(
                 key: addTaskCubit.formKey,
                 child:ScrollConfigurationCustom(
-                  axisDirection: AxisDirection.down,
                   child: ListView(
                     padding:
                     const EdgeInsets.symmetric(vertical: 8, horizontal: 14),

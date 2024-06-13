@@ -54,7 +54,6 @@ class AddTaskCubit extends Cubit<AddTaskState> {
       emit(AddNweTaskSuccessState());
     }).catchError((error){
       emit(AddNweTaskErrorState());
-      print(error);
       throw error;
     });
   }

@@ -1,3 +1,5 @@
+import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todo_app/models/task_model.dart';
 import 'package:todo_app/view_model/data/local/shared_keys.dart';
@@ -24,6 +26,53 @@ class GetTasksCubit extends Cubit<GetTasksState> {
       emit(GetTasksSuccessState());
     }).catchError((error){
       emit(GetTasksErrorState());
+    });
+  }
+
+  ScrollController scrollController=ScrollController();
+  void initController(){
+    scrollController=ScrollController();
+  }
+  void disposeController(){
+    scrollController.dispose();
+  }
+  void scrollerListener(){
+    scrollController.addListener(() {
+      if(scrollController.position.atEdge ){
+        if(scrollController.position.pixels !=0 && !isLoadingTasks && hasMoreTasks){
+          getMoreTasks();
+        }
+      }
+    });
+  }
+
+  bool hasMoreTasks=true;
+  bool isLoadingTasks=false;
+
+  Future<void>getMoreTasks()async {
+    isLoadingTasks=true;
+    emit(GetMoreTasksLoadingState());
+    await DioHelper.get(
+        endPoint: EndPoints.tasks,
+        token: LocalData.get(key:SharedKeys.token,),
+        parameters: {
+          'page': (taskModel?.data?.meta?.currentPage??0)+1
+        }
+    ).then((value) {
+      isLoadingTasks=false;
+      TaskModel newTasksModel =TaskModel.fromJson(value.data);
+      taskModel?.data?.meta=newTasksModel.data?.meta;
+      taskModel?.data?.tasks?.addAll(newTasksModel.data?.tasks??[]);
+      if(taskModel?.data?.meta?.currentPage==taskModel?.data?.meta?.lastPage)
+      {
+        hasMoreTasks=false;
+      }
+      emit(GetMoreTasksSuccessState());
+    }).catchError((error){
+      isLoadingTasks=false;
+      if(error is DioException){
+        emit(GetMoreTasksErrorState());
+      }
     });
   }
 }
