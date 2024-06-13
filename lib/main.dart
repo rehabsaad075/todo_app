@@ -11,6 +11,7 @@ Future<void> main() async {
   Bloc.observer = MyBlocObserver();
   await LocalData.init();
   await DioHelper.init();
+  //LocalData.clear();
   runApp(const TodoApp());
 }
 class TodoApp extends StatelessWidget {
@@ -29,7 +30,7 @@ class TodoApp extends StatelessWidget {
                   fontSize: 22,
                   fontWeight: FontWeight.w600
               ),
-              titleSpacing: 0,
+              titleSpacing: 18,
               iconTheme: IconThemeData(
                 color: AppColors.appColor,
                 size: 27,
