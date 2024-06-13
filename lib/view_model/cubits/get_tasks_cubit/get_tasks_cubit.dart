@@ -11,4 +11,5 @@ class GetTasksCubit extends Cubit<GetTasksState> {
 
   static GetTasksCubit get(context)=>BlocProvider.of<GetTasksCubit>(context);
 
+  
 }
