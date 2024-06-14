@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todo_app/models/task_model.dart';
+import 'package:todo_app/view/componets/bodies/shimmer_tasks.dart';
 import 'package:todo_app/view/componets/items/task_item_custom.dart';
 import 'package:todo_app/view/componets/widgets/circular_progress_loading_custom.dart';
 import 'package:todo_app/view/componets/widgets/scroll_configuration_custom.dart';
@@ -17,40 +18,46 @@ class AllTasksListView extends StatelessWidget {
     return BlocBuilder<GetTasksCubit, GetTasksState>(
       builder: (context, state) {
         GetTasksCubit getTasksCubit = GetTasksCubit.get(context);
-        return ScrollConfigurationCustom(
-            child: ListView(
-          controller: getTasksCubit.scrollController,
-          children: [
-            ListView.separated(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-                itemBuilder: (context, index) {
-                  return TaskItemCustom(
-                    onTap: () {
-                      navigationPushFunction(
-                          context: context, screen: const UpdateTaskScreen());
-                    },
-                    tasks:
-                        getTasksCubit.taskModel?.data?.tasks?[index] ?? Tasks(),
-                  );
-                },
-                separatorBuilder: (context, index) => const SizedBox(
-                      height: 10,
+         if (state is GetTasksLoadingState){
+          return const ShimmerTasks();
+        }
+        else{
+          return ScrollConfigurationCustom(
+              child: ListView(
+                controller: getTasksCubit.scrollController,
+                children: [
+                  ListView.separated(
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      padding:
+                      const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                      itemBuilder: (context, index) {
+                        return TaskItemCustom(
+                          onTap: () {
+                            navigationPushFunction(
+                                context: context, screen: const UpdateTaskScreen());
+                          },
+                          tasks:
+                          getTasksCubit.taskModel?.data?.tasks?[index] ?? Tasks(),
+                        );
+                      },
+                      separatorBuilder: (context, index) => const SizedBox(
+                        height: 10,
+                      ),
+                      itemCount: getTasksCubit.taskModel?.data?.tasks?.length ?? 0),
+                  if (getTasksCubit.isLoadingTasks)
+                    const Padding(
+                      padding: EdgeInsets.all(12.0),
+                      child: Center(
+                        child: CircularProgressLoadingCustom(
+                          color: AppColors.appColor,
+                        ),
+                      ),
                     ),
-                itemCount: getTasksCubit.taskModel?.data?.tasks?.length ?? 0),
-            if (getTasksCubit.isLoadingTasks)
-              const Padding(
-                padding: EdgeInsets.all(12.0),
-                child: Center(
-                  child: CircularProgressLoadingCustom(
-                    color: AppColors.appColor,
-                  ),
-                ),
-              ),
-          ],
-        ));
+                ],
+              ));
+        }
+
       },
     );
   }
