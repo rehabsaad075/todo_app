@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:todo_app/view/componets/bodies/all_tasks_body.dart';
 import 'package:todo_app/view/screens/todo_screens/add_task_screen.dart';
-import 'package:todo_app/view/componets/bodies/all_tasks_list_view.dart';
 import 'package:todo_app/view_model/cubits/get_tasks_cubit/get_tasks_cubit.dart';
 import 'package:todo_app/view_model/utils/material/app_icons.dart';
 import 'package:todo_app/view_model/utils/functions/navigation_functions.dart';
@@ -29,7 +29,7 @@ class TodoHomePageScreen extends StatelessWidget {
               ),
             ],
           ),
-          body: const AllTasksListView(),
+          body: const AllTasksBody(),
           floatingActionButtonLocation: FloatingActionButtonLocation
               .startFloat,
           floatingActionButton: FloatingActionButton(
