@@ -26,8 +26,9 @@ class AllTasksListView extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return TaskItemCustom(
                     onTap: () {
+                      getTasksCubit.changeTaskIndex(index);
                       navigationPushFunction(
-                          context: context, screen: const UpdateTaskScreen());
+                          context: context, screen: UpdateTaskScreen(index: index,));
                     },
                     tasks:
                     getTasksCubit.taskModel?.data?.tasks?[index] ?? Tasks(),

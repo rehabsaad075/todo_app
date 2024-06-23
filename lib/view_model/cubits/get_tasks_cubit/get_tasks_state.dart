@@ -11,3 +11,5 @@ class GetTasksErrorState extends GetTasksState {}
 class GetMoreTasksLoadingState extends GetTasksState {}
 class GetMoreTasksSuccessState extends GetTasksState {}
 class GetMoreTasksErrorState extends GetTasksState {}
+
+class ChangeTaskIndexState extends GetTasksState {}

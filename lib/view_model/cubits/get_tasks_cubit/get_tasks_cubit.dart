@@ -75,4 +75,10 @@ class GetTasksCubit extends Cubit<GetTasksState> {
       }
     });
   }
+
+  int currentTaskIndex=0;
+  void changeTaskIndex(int index){
+    currentTaskIndex=index;
+    emit(ChangeTaskIndexState());
+  }
 }

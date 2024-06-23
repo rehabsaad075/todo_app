@@ -7,6 +7,7 @@ import 'package:todo_app/view/componets/widgets/elvated_button_custom.dart';
 import 'package:todo_app/view/componets/widgets/scroll_configuration_custom.dart';
 import 'package:todo_app/view/componets/widgets/text_form_field_custom.dart';
 import 'package:todo_app/view_model/cubits/add_task_cubit/add_task_cubit.dart';
+import 'package:todo_app/view_model/cubits/get_tasks_cubit/get_tasks_cubit.dart';
 import 'package:todo_app/view_model/utils/functions/show_date_picker_function.dart';
 
 class AddTaskScreen extends StatelessWidget {
@@ -19,6 +20,7 @@ class AddTaskScreen extends StatelessWidget {
       child: BlocBuilder<AddTaskCubit, AddTaskState>(
         builder: (context, state) {
           AddTaskCubit addTaskCubit = AddTaskCubit.get(context);
+          GetTasksCubit getTasksCubit=GetTasksCubit.get(context);
           return Directionality(
             textDirection: TextDirection.rtl,
             child: Scaffold(
@@ -91,6 +93,7 @@ class AddTaskScreen extends StatelessWidget {
                           if (addTaskCubit.formKey.currentState!.validate()) {
                             addTaskCubit.addNewTask().then((value) {
                               Navigator.pop(context);
+                              getTasksCubit.getAllTasks();
                             });
                           }
                         },
