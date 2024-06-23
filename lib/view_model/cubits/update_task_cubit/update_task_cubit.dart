@@ -21,7 +21,15 @@ class UpdateTaskCubit extends Cubit<UpdateTaskState> {
 
 
   // Future<void>getTask()async {
-  //
+  //   emit(GetTaskLoadingState());
+  //   await DioHelper.get(
+  //       endPoint: '${EndPoints.tasks}/987'
+  //   ).then((value) {
+  //     emit(GetTaskSuccessState());
+  //   }).catchError((error){
+  //     emit(GetTaskErrorState());
+  //     throw error;
+  //   });
   // }
   //
   // Future<void>updateTask({required int id})async {

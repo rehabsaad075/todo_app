@@ -8,4 +8,8 @@ class UpdateTaskLoadingState extends UpdateTaskState {}
 class UpdateTaskSuccessState extends UpdateTaskState {}
 class UpdateTaskErrorState extends UpdateTaskState {}
 
+class GetTaskLoadingState extends UpdateTaskState {}
+class GetTaskSuccessState extends UpdateTaskState {}
+class GetTaskErrorState extends UpdateTaskState {}
+
 
