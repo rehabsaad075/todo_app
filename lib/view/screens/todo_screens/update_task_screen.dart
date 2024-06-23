@@ -10,13 +10,13 @@ import 'package:todo_app/view_model/cubits/update_task_cubit/update_task_cubit.d
 import 'package:todo_app/view_model/utils/functions/show_date_picker_function.dart';
 
 class UpdateTaskScreen extends StatelessWidget {
-  final int index;
-  const UpdateTaskScreen({super.key, required this.index});
+  final int id;
+  const UpdateTaskScreen({super.key, required this.id});
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => UpdateTaskCubit(),
+      create: (context) => UpdateTaskCubit()..showSingleTask(id),
       child: BlocBuilder<UpdateTaskCubit, UpdateTaskState>(
         builder: (context, state) {
           UpdateTaskCubit updateTaskCubit=UpdateTaskCubit.get(context);
@@ -83,13 +83,18 @@ class UpdateTaskScreen extends StatelessWidget {
                       const SizedBox(
                         height: 15,
                       ),
-                      const DropDownMenuCustom(),
+                       DropDownMenuCustom(
+                         controller: updateTaskCubit.taskTypeController,
+                         onSelected: (value ) {
+                           updateTaskCubit.selectedTaskType(value!);
+                         },
+                       ),
                       const SizedBox(
                         height: 35,
                       ),
                       ElevatedButtonCustom(
                         onPressed: () {
-                          // updateTaskCubit.updateTask(id: getTasksCubit.taskModel?.data?.tasks?[index].id??0)
+                          // updateTaskCubit.updateTask(id)
                           //     .then((value){
                           //   Navigator.pop(context);
                           //   getTasksCubit.getAllTasks();

@@ -84,7 +84,11 @@ class AddTaskScreen extends StatelessWidget {
                       const SizedBox(
                         height: 15,
                       ),
-                      const DropDownMenuCustom(),
+                       DropDownMenuCustom(
+                         onSelected: (value) {
+                          addTaskCubit.selectedTaskType(value!);
+                       },
+                       ),
                       const SizedBox(
                         height: 35,
                       ),

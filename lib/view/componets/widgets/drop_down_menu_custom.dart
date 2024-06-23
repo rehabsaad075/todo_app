@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:todo_app/view_model/cubits/add_task_cubit/add_task_cubit.dart';
 import 'package:todo_app/view_model/utils/material/app_colors.dart';
 
 class DropDownMenuCustom extends StatelessWidget {
-  const DropDownMenuCustom({super.key});
+  final void Function(String?)? onSelected;
+  final TextEditingController? controller;
+  const DropDownMenuCustom({super.key,required this.onSelected, this.controller});
 
   @override
   Widget build(BuildContext context) {
     return DropdownMenu(
         width: 365,
-        onSelected: (value){
-          AddTaskCubit.get(context).selectedTaskType(value!);
-        },
+        onSelected: onSelected,
+        controller:controller,
         label: const Text(
           'اختر نوع المهمة',
           style: TextStyle(
