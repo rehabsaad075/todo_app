@@ -68,6 +68,19 @@ class DioHelper {
         endPoint,
         data: body ?? formData,
         queryParameters: parameters,
+        options: Options(
+          responseType: ResponseType.json,
+          validateStatus: (statusCode){
+            if(statusCode == null){
+              return false;
+            }
+            if(statusCode == 422){ // your http status code
+              return true;
+            }else{
+              return statusCode >= 200 && statusCode < 300;
+            }
+          },
+        ),
       );
       return response!;
     } catch (e) {

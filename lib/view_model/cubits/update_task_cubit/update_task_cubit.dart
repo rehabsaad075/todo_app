@@ -5,6 +5,7 @@ import 'package:todo_app/view_model/data/local/shared_keys.dart';
 import 'package:todo_app/view_model/data/local/shared_preferences.dart';
 import 'package:todo_app/view_model/data/network/diohelper.dart';
 import 'package:todo_app/view_model/data/network/endPoints.dart';
+import 'package:todo_app/view_model/utils/functions/show_toast_function.dart';
 
 part 'update_task_state.dart';
 
@@ -52,4 +53,25 @@ class UpdateTaskCubit extends Cubit<UpdateTaskState> {
     taskTypeController.text=getTaskModel?.data?.status??'';
   }
 
+Future<void>updateTask(int id)async {
+  emit(UpdateTaskLoadingState());
+  await DioHelper.post(
+      endPoint: '${EndPoints.tasks}/$id',
+    token: LocalData.get(key: SharedKeys.token),
+    body: {
+      "_method":"PUT",
+      "title":titleUpdateController.text,
+      "description":taskUpdateController.text,
+      "start_date":startDateUpdateController.text,
+      "end_date":lastDateUpdateController.text,
+      "status":taskTypeController.text
+    }
+  ).then((value) {
+    showToast(msg: 'تم تجديث المهمة بنجاح');
+    emit(UpdateTaskSuccessState());
+  }).catchError((error){
+    emit(UpdateTaskErrorState());
+    throw error;
+  });
+}
 }

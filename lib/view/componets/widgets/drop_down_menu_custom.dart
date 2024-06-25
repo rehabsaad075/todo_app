@@ -29,8 +29,8 @@ class DropDownMenuCustom extends StatelessWidget {
               label: 'doing'
           ),
           DropdownMenuEntry(
-              value: 'completed',
-              label: 'completed'
+              value: 'compeleted',
+              label: 'compeleted'
           ),
           DropdownMenuEntry(
               value: 'outdated',
