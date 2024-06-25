@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app/models/task_model.dart';
+import 'package:todo_app/view_model/utils/functions/alertDialog_function.dart';
 import 'package:todo_app/view_model/utils/material/app_colors.dart';
 import 'package:todo_app/view_model/utils/material/app_icons.dart';
 
@@ -52,7 +53,12 @@ class TaskItemCustom extends StatelessWidget {
             Row(
               children: [
                 IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      alertDialogFunction(
+                          context: context,
+                          onPressed: () {  }
+                      );
+                    },
                     icon: const Icon(
                       AppIcons.deleteIcon,
                       color: AppColors.appColor,
