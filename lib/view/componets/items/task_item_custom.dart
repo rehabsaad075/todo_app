@@ -6,9 +6,10 @@ import 'package:todo_app/view_model/utils/material/app_icons.dart';
 
 class TaskItemCustom extends StatelessWidget {
   final void Function()? onTap;
+  final  void Function()? deleteOnPressed;
   final Tasks tasks;
 
-  const TaskItemCustom({super.key, required this.onTap, required this.tasks});
+  const TaskItemCustom({super.key, required this.onTap, required this.tasks,required this.deleteOnPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +57,7 @@ class TaskItemCustom extends StatelessWidget {
                     onPressed: () {
                       alertDialogFunction(
                           context: context,
-                          onPressed: () {  }
+                          onPressed: deleteOnPressed
                       );
                     },
                     icon: const Icon(
