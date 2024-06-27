@@ -23,6 +23,10 @@ class GetTasksCubit extends Cubit<GetTasksState> {
       token: LocalData.get(key: SharedKeys.token,),
     ).then((value) {
       taskModel=TaskModel.fromJson(value.data);
+      if(taskModel?.data?.meta?.currentPage==taskModel?.data?.meta?.lastPage)
+      {
+        hasMoreTasks=false;
+      }
       emit(GetTasksSuccessState());
     }).catchError((error){
       emit(GetTasksErrorState());

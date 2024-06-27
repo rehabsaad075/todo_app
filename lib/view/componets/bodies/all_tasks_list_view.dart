@@ -71,6 +71,10 @@ class AllTasksListView extends StatelessWidget {
                   ),
                 ),
               ),
+            if(!getTasksCubit.hasMoreTasks)
+              const Text(
+                '',
+              ),
           ],
         ));
   }
