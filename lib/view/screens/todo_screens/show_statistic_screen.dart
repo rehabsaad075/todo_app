@@ -173,7 +173,12 @@ class ShowStatisticScreen extends StatelessWidget {
                           );
                         },
 
-                        child: const Text('Go To Tasks'),
+                        child: const Text(
+                            'Go To Tasks',
+                          style: TextStyle(
+                            fontSize: 18
+                          ),
+                        ),
                       )
                     ],
                   ):

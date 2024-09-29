@@ -13,13 +13,10 @@ class TodoHomePageScreen extends StatelessWidget {
       textDirection: TextDirection.rtl,
       child: Scaffold(
         appBar: AppBar(
-          title: const Text(
-              'المهام'
-          ),
-          actions: const [
-            Padding(
-              padding: EdgeInsets.only(left: 18),
-              child: Icon(
+          actions:  [
+            IconButton(
+              onPressed: () {  },
+              icon: const Icon(
                   AppIcons.listIcon
               ),
             ),
