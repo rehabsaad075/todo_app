@@ -1,16 +1,33 @@
-# todo_app
 
-A new Flutter project.
+---
 
-## Getting Started
+### 3. `README.md` — Task Manager App
 
-This project is a starting point for a Flutter application.
+```markdown
+# Task Manager App
 
-A few resources to get you started if this is your first Flutter project:
+## ✅ Overview
+A task scheduling app that allows users to manage their daily to-dos by assigning specific dates to each task.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## 🚀 Features
+- Add, edit, delete tasks
+- Schedule tasks by date
+- Simple and intuitive interface
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 🛠️ Technologies Used
+- Flutter
+- Dart
+- APIs
+- Bloc
+
+## 🧠 My Role
+- Task scheduling logic
+- UI design and development
+- Local storage integration
+
+## 📦 Installation
+```bash
+git clone https://github.com/your-username/task_manager_app.git
+cd task_manager_app
+flutter pub get
+flutter run
